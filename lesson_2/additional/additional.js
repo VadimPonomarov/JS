@@ -17,8 +17,7 @@ if (friends[2]) {
 let first = Math.floor(Math.random() * 100);
 let second = Math.floor(Math.random() * 100);
 let third = Math.floor(Math.random() * 100);
-document.write(`<h1>${first} - ${second} - ${third}</h1>`);
-alert(`${first} - ${second} - ${third}`);
+alert(`Случайные числа ${first} - ${second} - ${third}`);
 
 if ((first < second &&
     second < third) || (third < second &&
@@ -48,8 +47,8 @@ if ((first < second &&
 let a = Math.floor(Math.random() * 4);
 let b = Math.floor(Math.random() * 4);
 let result = a + b < 4
-    ? document.write(`<h1>${a} + ${b} < 4 - мало</h1>`)
-    : document.write(`<h1>${a} + ${b} < 4 - много</h1>`);
+    ? alert(`${a} + ${b} < 4 - мало`)
+    : alert(`${a} + ${b} < 4 - много`);
 
 /*- Маємо будь яке число від -100 , 0 , +100 потрібно перевірити яким є число: позитивним, негативним або нулем
 напишіть це тернарним оператором*/
@@ -57,8 +56,8 @@ let result = a + b < 4
 let figure = +prompt('Введите число от -100 до 100') || 0;
 if (figure) {
     figure < 0
-        ? document.write(`<h1>${figure} - негативное число</h1>`)
-        : document.write(`<h1>${figure} - позитивное число</h1>`)
+        ? alert(`${figure} - введено негативное число`)
+        : alert(`${figure} - введено позитивное число`)
 } else {
-    document.write(`<h1>${figure} - ноль</h1>`)
+    alert(`${figure} - введен ноль`)
 }
