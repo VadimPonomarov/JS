@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="homework.js"></script>
+</head>
+<body>
+<script>
+    // Площадь прямоугольника
+    console.log('--1--', rectArea(random(10), random(20)));
+    // Площадь круга
+    console.log('--2--', cirArea(random(30)));
+    // Объем цилиндра
+    console.log('--3--', cilinderArea(random(10), random(5)));
+    // Массив в консоль поэлементно
+    console.log('--4--');
+    arrayList([1, 2, 3]);
+    // Обернуть в параграф
+    console.log('--5--', makeParagraph('Test paragraph'));
+    // Вернуть список Ul из 3 элементов Li
+    console.log('--6--', makeUl('----'));
+    // Вернуть список Ul из N элементов Li
+    console.log('--7--', makeUlN('++++', random(10)));
+    // Вернуть список Ul из N элементов Li - из массива примитовов
+    console.log('--8--', makeUlArray(['string', 5, true, NaN, null,'']));
+    // Вернуть в документ Div - из массива объектов
+    makeDivObj([
+        {id: 'ID', name: 'Name', age: 'AGE'},
+        {name: 'Name', age: 'AGE'},
+        {id: 'ID', name: 'Name', age: ''}
+    ]);
+
+</script>
+</body>
+</html>
