@@ -8,35 +8,158 @@
     <title>Document</title>
 </head>
 <body>
-<script src="classwork.js"></script>
 <script>
+    /*Проверяет, являются ли типы аргументов числовыми*/
+    function checkNum() {
+        for (let i of arguments) {
+            if (typeof i !== 'number') {
+                return false
+            }
+        }
+        return true
+    }
+
+    /*Возвращает рандомное число в заданном диапазоне*/
+    function random(range) {
+        return Math.floor(Math.random() * range)
+    }
+
+    /*-----------Classwork------------*/
+
+    /*- створити функцію яка приймає три числа та виводить найменьше. (Без Math.min!)*/
+
+    function fMin() {
+        let min;
+        for (let i of arguments) {
+            min = (min < i) ? min : i
+        }
+        return min;
+    }
+
     document.write(`fMin(1, 2, 3) = ${fMin(1, 2, 3)}<br>`);
     console.log(fMin(1, 2, 3));
+
+
+    /*- створити функцію яка приймає три числа та виводить найбільше. (Без Math.max!)*/
+
+    function fMax() {
+        let max;
+        for (let i of arguments) {
+            max = (max > i) ? max : i
+        }
+        return max;
+    }
 
     document.write(`fMax(1, 2, 3) = ${fMax(1, 2, 3)}<br>`);
     console.log(fMax(1, 2, 3));
 
+    /*- створити функцію яка повертає найбільше число з масиву*/
+
+    function fMaxArr(arr) {
+        let max;
+        for (let i of arr) {
+            max = (max > i) ? max : i
+        }
+        return max;
+    }
+
     document.write(`fMaxArr([1, 2, 3]) = ${fMaxArr([1, 2, 3])}<br>`);
     console.log(fMaxArr([1, 2, 3]));
+
+    /*- створити функцію яка повертає найменьше число з масиву*/
+
+    function fMinArr(arr) {
+        let min;
+        for (let i of arr) {
+            min = (min < i) ? min : i
+        }
+        return min;
+    }
 
     document.write(`fMinArr([1, 2, 3]) = ${fMinArr([1, 2, 3])}<br>`);
     console.log(fMinArr([1, 2, 3]));
 
+    /*- створити функцію яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад [1,2,10]->13*/
+
+    function sumArr(arr) {
+        let sum = 0;
+        for (let i of arr) {
+            sum += i
+        }
+        return sum;
+    }
+
     document.write(`sumArr([1, 2, 3]) = ${sumArr([1, 2, 3])}<br>`);
     console.log(sumArr([1, 2, 3]));
+
+    /*- створити функцію яка приймає масив чисел та повертає середнє арифметичне його значень.*/
+
+    function avgArr(arr) {
+        let sum = 0;
+        let avg;
+        for (let i of arr) {
+            sum += i
+        }
+        avg = sum / arr.length;
+        return avg;
+    }
 
     document.write(`avgArr([3, 7, 9]) = ${avgArr([3, 7, 9])}<br>`);
     console.log(avgArr([3, 7, 9]));
 
-    document.write(`minMax([1, 9, 129])
-    -- min = ${minMax([1, 9, 129])}
+    /*- створити функцію яка приймає будь-яку кількість чисел, повертає найменьше, а виводить найбільше (Math використовувати заборонено);*/
+
+    function minMax() {
+        console.log(fMaxArr(arguments));
+        return fMinArr(arguments);
+    }
+
+    document.write(`minMax(1, 9, 129)
+    -- min = ${minMax(1, 9, 129)}
     -- max = см. в консоли <br>`);
+
+    /*- створити функцію яка заповнює масив рандомними числами
+    (цей код генерує рандомні числа в діапазоні від 0 до 100 - Math.round(Math.random()*100)) та виводить його.*/
+
+    function randArr100(size) {
+        let arr = [];
+        for (let i = 0; i < size; i++) {
+            arr[i] = random(100);
+        }
+        console.log(arr);
+        return arr;
+    }
 
     document.write(`randArr100(20) = ${randArr100(20)}<br>`);
 
+
+    /*- створити функцію яка заповнює масив рандомними числами в діапазоні від 0 до limit. limit - аргумент, який характеризує кінцеве значення діапазону.*/
+
+    function randArr(size, limit) {
+        let arr = [];
+        for (let i = 0; i < size; i++) {
+            arr[i] = random(limit);
+        }
+        console.log(arr);
+        return arr;
+    }
+
     document.write(`randArr(20, 1000) = ${randArr(20, 1000)}<br>`);
 
+
+    /*- Функція приймає масив та робить з нього новий масив в зворотньому порядку. [1,2,3] -> [3, 2, 1].*/
+
+    function arrContra(arr) {
+        let contra = [];
+        for (let i = arr.length - 1, y = 0; i >= 0; i--, y++) {
+            contra[y] = arr[i];
+        }
+        console.log(contra)
+        return contra;
+    }
+
     document.write(`arrContra([1, 3, 5]) = [${arrContra([1, 3, 5])}]<br>`);
+
 </script>
 </body>
 </html>

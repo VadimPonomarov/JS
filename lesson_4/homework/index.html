@@ -6,33 +6,164 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <script src="homework.js"></script>
 </head>
 <body>
 <script>
+
+    /*Проверяет, являются ли типы аргументов числовыми*/
+    function checkNum() {
+        for (let i of arguments) {
+            if (typeof i !== 'number') {
+                return false
+            }
+        }
+        return true
+    }
+
+    /*Возвращает рандомное число в заданном диапазоне*/
+    function random(range) {
+        return Math.floor(Math.random() * range)
+    }
+
+    /* Homework*/
+
+    /*1 - створити функцію яка обчислює та повертає площу прямокутника зі сторонами а і б*/
+
+    function rectArea(width, length) {
+        if (!checkNum(width, length)) {
+            return 'В rectArea передан неверный тип данных'
+        }
+        return width * length
+    }
+
     // Площадь прямоугольника
     console.log('--1--', rectArea(random(10), random(20)));
+
+    /*2 - створити функцію яка обчислює та повертає площу кола з радіусом r*/
+    function cirArea(radius) {
+        if (!checkNum(radius)) {
+            return 'В cirArea передан неверный тип данных'
+        }
+        return Math.round(Math.PI * radius ** 2)
+    }
+
     // Площадь круга
     console.log('--2--', cirArea(random(30)));
+
+    /*3 - створити функцію яка обчислює та повертає oб'єм циліндру висотою h, та радіутом r*/
+
+    function cilinderArea(height, radius) {
+        if (!checkNum(height, radius)) {
+            return 'В cilinderArea передан неверный тип данных'
+        }
+        return cirArea(radius) * height
+    }
+
     // Объем цилиндра
     console.log('--3--', cilinderArea(random(10), random(5)));
+
+    /*4 - створити функцію яка приймає масив та виводить кожен його елемент*/
+    function arrayList(arr) {
+        if (!Array.isArray(arr)) {
+            return 'В arrayList передан неверный тип данных'
+        }
+        for (let i of arr) {
+            console.log(i);
+        }
+    }
+
     // Массив в консоль поэлементно
     console.log('--4--');
     arrayList([1, 2, 3]);
+
+    /*5 - створити функцію яка створює параграф з текстом. Текст задати через аргумент*/
+    function makeParagraph(text) {
+        if (typeof text !== 'object') {
+            return (`<p>${text}</p>`)
+        } else {
+            return 'В makeParagraph передан неверный тип данных'
+        }
+    }
+
     // Обернуть в параграф
     console.log('--5--', makeParagraph('Test paragraph'));
+
+    /*6 - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий*/
+
+    function makeUl(text) {
+        if (typeof text !== 'object') {
+            return (`<ul><li>${text}</li><li>${text}</li><li>${text}</li></ul>`)
+        } else {
+            return 'В makeUl передан неверный тип данных'
+        }
+    }
+
     // Вернуть список Ul из 3 элементов Li
     console.log('--6--', makeUl('----'));
+
+    /*7- створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий. Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)*/
+
+    function makeUlN(text, number) {
+        let num = number || 3;
+        let list = '';
+        if (typeof text !== 'object') {
+            if (num) {
+                for (let i = 1; i <= num; i++) {
+                    list += `<li>${text}</li>`
+                }
+            }
+            return (`<ul>${list}</ul>`)
+        } else {
+            return 'В makeUlN передан неверный тип данных'
+        }
+    }
+
     // Вернуть список Ul из N элементов Li
     console.log('--7--', makeUlN('++++', random(10)));
+
+    /*8- створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список*/
+
+    function makeUlArray(array) {
+        if (!Array.isArray(array)) {
+            return 'В makeUlArray передан неверный тип данных'
+        }
+        let list = '';
+        for (let i of array) {
+            list += `<li>${i}</li>`
+        }
+        return (`<ul>${list}</ul>`)
+    }
+
     // Вернуть список Ul из N элементов Li - из массива примитовов
     console.log('--8--', makeUlArray(['string', 5, true, NaN, '']));
+
+    /*9- створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.*/
+
+    function makeDivObj(array) {
+        if (!Array.isArray(array)) {
+            return 'В makeUlArray передан неверный тип данных'
+        }
+        for (let i of array) {
+            let info;
+            if (!(i.id && i.name && i.age)) {
+                info = '-- Нет данных --'
+            }
+            document.write(`
+               <div>${i.id || info}</div>
+               <div>${i.name || info}</div>
+               <div>${i.age || info}</div>
+               <hr>
+        `)
+        }
+    }
+
     // Вернуть в документ Div - из массива объектов
     makeDivObj([
         {id: 'ID', name: 'Name', age: 'AGE'},
         {name: 'Name', age: 'AGE'},
         {id: 'ID', name: 'Name', age: ''}
     ]);
+
 
 </script>
 </body>
