@@ -1,4 +1,4 @@
-/*- Дано список імен.
+/*1 - Дано список імен.
 let n1 = 'Harry..Potter'
 let n2 = 'Ron---Whisley'
 let n3 = 'Hermione__Granger'
@@ -25,11 +25,12 @@ const normalizeName = str => {
 }
 
 /*Пример*/
+console.log('--1--');
 console.log(normalizeName('Harry..Potter'));
 console.log(normalizeName('Ron---Whisley'));
 console.log(normalizeName('Hermione__Granger'));
 
-/*- створити функцію, яка генерує масив рандомних числових цілих значень в діапазоні від 0 до 100.*/
+/*2 - створити функцію, яка генерує масив рандомних числових цілих значень в діапазоні від 0 до 100.*/
 
 const randItem = (min, max) => Math.round(Math.random() * (max - min) + min);
 
@@ -46,19 +47,22 @@ console.log(randArray(10, 100, 20));
 /*- створити (або згенерувати, за допомоги попередньої функції) масив рандомних цілих числових значень. Відсортувати його за допомоги sort*/
 
 /*Пример*/
+console.log('--2--');
 console.log(randArray(10, 100, 30).sort());
 
-/*- створити (або згенерувати, за допомоги попередньої функції) масив рандомних цілих числових значень. відфільтрувати  його за допомоги filter, залишивши тільки парні числа*/
+/*3 - створити (або згенерувати, за допомоги попередньої функції) масив рандомних цілих числових значень. відфільтрувати  його за допомоги filter, залишивши тільки парні числа*/
 
 /*Пример*/
+console.log('--3--');
 console.log(randArray(10, 100, 40).filter(value => !(value % 2)));
 
-/*- створити масив рандомних цілих числових значень (або згенерувати, за допомоги попередньої функції) . за допомоги map та колбеку перетворити всі об'єкти в масиві на стрінгові.*/
+/*4 - створити масив рандомних цілих числових значень (або згенерувати, за допомоги попередньої функції) . за допомоги map та колбеку перетворити всі об'єкти в масиві на стрінгові.*/
 
 /*Пример*/
+console.log('--4--');
 console.log(randArray(10, 100, 40).map(value => `${value}`));
 
-/*- створити функцію sortNums(direction), яка прймає масив чисел, та сортує його від більшого до меньшого, або навпаки в залежності від значення аргументу direction.
+/*5 - створити функцію sortNums(direction), яка прймає масив чисел, та сортує його від більшого до меньшого, або навпаки в залежності від значення аргументу direction.
 let nums = [11,21,3];
 sortNums('ascending') // [3,11,21]
 sortNums('descending') // [21,11,3]*/
@@ -74,10 +78,11 @@ const sortNums = (array, direction) => {
 }
 
 /*Пример*/
+console.log('--5--');
 console.log(sortNums([11, 21, 3], 'descanding'));
 console.log(sortNums([11, 21, 3], 'ascanding'));
 
-/*- є масив
+/* - є масив
 let coursesAndDurationArray = [
     {title: 'JavaScript Complex', monthDuration: 5},
     {title: 'Java Complex', monthDuration: 6},
@@ -97,16 +102,19 @@ let coursesAndDurationArray = [
     {title: 'QA Complex', monthDuration: 4},
     {title: 'FullStack', monthDuration: 7},
 ]
-/*-- відсортувати його за спаданням за monthDuration*/
+/*6-- відсортувати його за спаданням за monthDuration*/
 
-/*Пример*/
+
+console.log('--6--');
 console.log(coursesAndDurationArray.sort((item1, item2) => item1.monthDuration - item2.monthDuration).reverse());
 
-/*-- відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців*/
+/*7 -- відфільтрувати , залишивши тільки курси з тривалістю більше 5 місяців*/
 
+/*Пример*/
+console.log('--7--');
 console.log(coursesAndDurationArray.filter(item => item.monthDuration > 5));
 
-/*- Напишите функцию cutString(str, n), которая делит строку на подстроки, состоящие из n символов.
+/*8- Напишите функцию cutString(str, n), которая делит строку на подстроки, состоящие из n символов.
 document.writeln(cutString('наслаждение',3)) // [нас,лаж,ден,ие]*/
 
 const cutString = (str, n) => {
@@ -118,4 +126,6 @@ const cutString = (str, n) => {
 }
 
 /*Пример*/
+
+console.log('--8--');
 console.log(cutString('наслаждение', 3));
