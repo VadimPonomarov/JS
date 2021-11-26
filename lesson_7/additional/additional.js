@@ -233,9 +233,9 @@ let selectAtt = [
     new TagAttribute('disabled', 'Блокирует доступ и изменение элемента.')
 ]
 
-let aTag = new Tag('<a>', 'Педназначен для создания ссылок', aAtt);
-let divTag = new Tag('<div>', 'Педназначен для создания блоков', divAtt);
-let h1Tag = new Tag('<h1>', 'Педназначен для создания заголовков H1', h1Att);
+let aTag = new Tag('<a>', 'Предназначен для создания ссылок', aAtt);
+let divTag = new Tag('<div>', 'Предназначен для создания блоков', divAtt);
+let h1Tag = new Tag('<h1>', 'Предназначен для создания заголовков H1', h1Att);
 let spanTag = new Tag('<span>', 'Предназначен для определения строчных элементов документа', spanAtt);
 let inputTag = new Tag('<input>', 'Предназначен для ввода данных', inputAtt);
 let formTag = new Tag('<form>', 'Устанавливает форму на веб-странице', formAtt);
