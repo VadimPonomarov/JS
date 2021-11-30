@@ -25,12 +25,14 @@ const recursionClasses = obj => {
     arr = [];
     let index = obj.length - 1;
     let next = () => {
-        if (!(--index)) {
+        if (!(index)) {
+            console.log(index);
             return
         }
         if (obj[index].classList.value) {
             arr.push(obj[index].classList.value);
         }
+        index--;
         next();
     }
     next();
