@@ -46,7 +46,7 @@ for (let element of elements) {
 /*f) отримує всі елементи 'a' та додає їм клас anchor*/
 elements = document.getElementsByTagName('a');
 for (let element of elements) {
-    element.classList += ' anchor';
+    element.classList.add('anchor');
 }
 
 /*g) отримує всі елементи 'a' та у випадку, якщо текстовий контен елементу дорівнює link3, змінює йому розмір тексту на 40 пікселів*/
@@ -60,7 +60,7 @@ for (let element of elements) {
 /*h) отримує всі елементи 'a' та додає їм клас element_XXX. Де XXX - текстовий контент елементу a*/
 
 for (let element of elements) {
-    element.classList += ` element_${element.innerText}`;
+    element.classList.add(`element_${element.innerText}`);
 }
 
 /*i) отримує всі елементи 'sub-header' та змінює колір фону. Фон отримати з prompt()*/
