@@ -129,7 +129,7 @@ for (let user of users) {
 <div>Age: ${user.age}</div>
 <div>Status: ${user.status}</div>
 <div style="background: lightgrey;">
-Address:
+<strong>Address:</strong><br>
     city: ${user.address.city}<br>
     country: ${user.address.country}<br>
     street: ${user.address.street}<br>
@@ -150,21 +150,24 @@ for (let user of users) {
     let status = document.createElement('div');
     let address = document.createElement('div');
     address.style.background = 'lightgrey';
-    let city = document.createElement('div');
-    let country = document.createElement('div');
-    let street = document.createElement('div');
+    let address_title = document.createElement('p');
+    address_title.style.fontWeight = 'bold';
+    let city = document.createElement('p');
+    let country = document.createElement('p');
+    let street = document.createElement('p');
     div.appendChild(userList);
     userList.appendChild(name);
     userList.appendChild(age);
     userList.appendChild(status);
     userList.appendChild(address);
-    userList.appendChild(city);
-    userList.appendChild(country);
-    userList.appendChild(street);
+    address.appendChild(address_title);
+    address.appendChild(city);
+    address.appendChild(country);
+    address.appendChild(street);
     name.innerText = `Name: ${user.name}`
     age.innerText = `Age: ${user.age}`
     status.innerText = `Status: ${user.status}`
-    address.innerText = `Address:`
+    address_title.innerText = `Address:`
     city.innerText = `city: ${user.address.city}`
     country.innerText = `country: ${user.address.country}`
     street.innerText = `street: ${user.address.street}`
