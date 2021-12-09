@@ -18,6 +18,9 @@ let users = [
 */
 
 const makeUserDiv = (obj, id, storId) => {
+    if (localStorage.getItem(storId)) {
+        localStorage.clear(storId)
+    };
     let myDiv = document.createElement('div');
     let myid = document.createElement('div');
     myid.setAttribute('id', 'id');
