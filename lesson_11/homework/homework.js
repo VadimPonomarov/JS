@@ -3,52 +3,52 @@
 
 /*Функция - генератор форм*/
 
-const myForm = (num, inp, labels = []) => {
-    let arr = [];
-    document.write(`Form ${num}`);
+const myForm = (id, names) => {
+    let inpNum = names.length;
     let form = document.createElement('form');
-    form.id = `form${num}`;
+    form.setAttribute('id', `form${id}`);
     form.classList.add('w-50', 'd-flex', 'flex-column', 'align-items-center', 'border');
     let button = document.createElement('button');
-    for (let i = 1; i <= inp; i++) {
+    button.setAttribute('type', 'submit');
+    button.innerText = 'Submit';
+    for (let i = 0; i < inpNum; i++) {
         let input = document.createElement('input');
-        let label = document.createElement('label');
-
-
-        label.style.width = '60%';
-        label.setAttribute('for', input.name);
-        label.innerText = labels[i - 1] || '';
-        label.classList.add('form-label');
-
-        input.style.width = '60%';
-        input.setAttribute("name", `input${i}`);
-        input.setAttribute("placeholder", `... input - ${i}`);
-        input.classList.add('form-control');
-
-        form.appendChild(label);
+        input.setAttribute("name", names[i]);
+        input.setAttribute("placeholder", `Введите ${names[i]}` );
+        input.classList.add('form-control', 'w-60');
         form.appendChild(input);
     }
 
-    button.setAttribute('type', 'submit');
-    button.innerText = 'Submit';
     form.lastChild.after(button);
-    form.onsubmit = function (e) {
-        e.preventDefault();
-        let targetArr = form.getElementsByTagName('input');
-        let arr = [];
-        for (let i of targetArr) {
-            arr.push({name: i.name, value: i.value})
-        }
-        localStorage.setItem(form.id, JSON.stringify(arr))
-    }
-
-    document.body.appendChild(form);
-
+    return form;
 }
+document.write(`--Form1--`,'<br>');
 
-myForm(1, 2, ['Name', 'Age']); //Создание и вывод на экран формы 1
+let form1 = myForm(1, ['name', 'age']);
+form1.onsubmit = function (e) {
+    e.preventDefault();
+    let name = document.forms.form1.name.value;
+    let age = document.forms.form1.age.value;
+    let storageObj = JSON.stringify({name, age});
+    localStorage.setItem('form1', storageObj)
+}
+document.body.appendChild(form1);
 
-/*-створити форму з інпутами для model,type та volume автівки.
+
+
+/*2 -створити форму з інпутами для model,type та volume автівки.
 при відпарвці форми об'єкти зберігаються в масиві в локальному сховищі.*/
 
-myForm(2, 3, ['Model', 'Type', 'Volume']); //Создание и вывод на экран формы 2
+document.write('<br>', `--Form2--`,'<br>');
+
+let form2 = myForm(2, ['model', 'type', 'volume']);
+form2.onsubmit = function (e) {
+    e.preventDefault();
+    let model = document.forms.form2.model.value;
+    let type = document.forms.form2.type.value;
+    let volume = document.forms.form2.volume.value;
+    let storageObj = {model, type, volume};
+    let arr = new Array().push(storageObj);
+    localStorage.setItem('form2', JSON.stringify(storageObj));
+}
+document.body.appendChild(form2);
