@@ -17,39 +17,26 @@ let users = [
 /*2 - Cтворити під кожен об'єкт свій блок з конопкою "додати до улюблених" при натисканні на яку об'єкт потрапляє до масиву favorites улюблених обраних об'єктів в локальному сховищі.
 */
 
-const makeUserDiv = (obj, id, storId) => {
-    if (localStorage.getItem(storId)) {
-        localStorage.clear(storId)
-    };
+const makeUserDiv = (obj, storId) => {
     let myDiv = document.createElement('div');
-    let myid = document.createElement('div');
-    myid.setAttribute('id', 'id');
     myDiv.classList.add('card', 'w-50', 'd-flex', 'align-items-center');
     myDiv.style.margin = '5px auto';
-    myDiv.appendChild(myid);
-    myid.innerText = `id: ${id}`;
-    for (let i in obj) {
-        let subDiv$i = document.createElement('div');
-        subDiv$i.innerText = `${i}: ${obj[i]}`;
-        subDiv$i.setAttribute(i, i);
-        myDiv.appendChild(subDiv$i);
+    for (let key in obj) {
+        let subDiv$key = document.createElement('div');
+        subDiv$key.innerText = `${key}: ${obj[key]}`;
+        myDiv.appendChild(subDiv$key);
     }
     let btn = document.createElement('button');
     btn.innerText = 'Add to favorits';
     btn.onclick = function (e) {
-        let id = this.parentElement.querySelector('div[id="id"]').innerText.split(': ')[1];
-        let name = this.parentElement.querySelector('div[name="name"]').innerText.split(': ')[1];
-        let age = this.parentElement.querySelector('[age="age"]').innerText.split(': ')[1];
-        let status = this.parentElement.querySelector('div[status="status"]').innerText.split(': ')[1];
-        let storageObj = {id, name, age, status};
-        let storageArr = [];
+        let storArr = [];
         if (!(localStorage.getItem(storId))) {
-            storageArr.push(storageObj);
-            localStorage.setItem(storId, JSON.stringify(storageArr));
+            storArr.push(obj);
+            localStorage.setItem(storId, JSON.stringify(storArr));
         } else {
-            storageArr = JSON.parse(localStorage.getItem(storId));
-            storageArr.push(storageObj);
-            localStorage.setItem(storId, JSON.stringify(storageArr));
+            storArr = JSON.parse(localStorage.getItem(storId));
+            storArr.push(obj);
+            localStorage.setItem(storId, JSON.stringify(storArr));
         }
         btn.disabled = 'disabled';
     }
@@ -59,7 +46,7 @@ const makeUserDiv = (obj, id, storId) => {
 
 const transformArr = (arr, storId) => {
     for (let i in arr) {
-        let item = makeUserDiv(users[i], i, storId);
+        let item = makeUserDiv(users[i], storId);
         document.body.appendChild(item);
     }
 }
