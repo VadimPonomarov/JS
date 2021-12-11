@@ -17,6 +17,15 @@ let users = [
 /*2 - Cтворити під кожен об'єкт свій блок з конопкою "додати до улюблених" при натисканні на яку об'єкт потрапляє до масиву favorites улюблених обраних об'єктів в локальному сховищі.
 */
 
+
+let favDiv = document.createElement('div');
+let favLink = document.createElement('a');
+favLink.setAttribute('href', './favorites.html');
+favLink.setAttribute('target', '_blank');
+favLink.innerText = 'Favorites page';
+favDiv.appendChild(favLink);
+document.body.appendChild(favDiv);
+
 const makeUserDiv = (obj, storId) => {
     let myDiv = document.createElement('div');
     myDiv.classList.add('card', 'w-50', 'd-flex', 'align-items-center');
@@ -27,7 +36,7 @@ const makeUserDiv = (obj, storId) => {
         myDiv.appendChild(subDiv$key);
     }
     let btn = document.createElement('button');
-    btn.innerText = 'Add to favorits';
+    btn.innerText = 'Add to favorites';
     btn.onclick = function (e) {
         let storArr = [];
         if (!(localStorage.getItem(storId))) {
@@ -52,4 +61,3 @@ const transformArr = (arr, storId) => {
 }
 
 transformArr(users, 'myFormArr');
-
