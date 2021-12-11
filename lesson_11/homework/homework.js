@@ -14,7 +14,7 @@ const myForm = (id, names) => {
     for (let i = 0; i < inpNum; i++) {
         let input = document.createElement('input');
         input.setAttribute("name", names[i]);
-        input.setAttribute("placeholder", `Введите ${names[i]}` );
+        input.setAttribute("placeholder", `Введите ${names[i]}`);
         input.classList.add('form-control', 'w-60');
         form.appendChild(input);
     }
@@ -22,7 +22,7 @@ const myForm = (id, names) => {
     form.lastChild.after(button);
     return form;
 }
-document.write(`--Form1--`,'<br>');
+document.write(`--Form1--`, '<br>');
 
 let form1 = myForm(1, ['name', 'age']);
 form1.onsubmit = function (e) {
@@ -35,11 +35,10 @@ form1.onsubmit = function (e) {
 document.body.appendChild(form1);
 
 
-
 /*2 -створити форму з інпутами для model,type та volume автівки.
 при відпарвці форми об'єкти зберігаються в масиві в локальному сховищі.*/
 
-document.write('<br>', `--Form2--`,'<br>');
+document.write('<br>', `--Form2--`, '<br>');
 
 let form2 = myForm(2, ['model', 'type', 'volume']);
 form2.onsubmit = function (e) {
@@ -48,7 +47,12 @@ form2.onsubmit = function (e) {
     let type = document.forms.form2.type.value;
     let volume = document.forms.form2.volume.value;
     let storageObj = {model, type, volume};
-    let arr = new Array().push(storageObj);
-    localStorage.setItem('form2', JSON.stringify(storageObj));
+    let arr = [];
+    if (!localStorage.getItem('form2')) {
+        localStorage.setItem('form2', JSON.stringify(arr));
+    }
+    arr = JSON.parse(localStorage.getItem('form2'));
+    arr.push(storageObj);
+    localStorage.setItem('form2', JSON.stringify(arr));
 }
 document.body.appendChild(form2);
