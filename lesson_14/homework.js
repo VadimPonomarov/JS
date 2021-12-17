@@ -143,28 +143,27 @@ setTimeout(() => {
                     goSleep();
                     return
                 })
-                .finally(() => {
+                .then(() => {
                     setTimeout(() => {
-                        async function myFunc() {
-                            console.log('----- Async/Await -----');
-                            await getUp().then(res => console.log(res));
-                            await washUp().then(res => console.log(res));
-                            await haveBreakfast().then(res => console.log(res));
-                            await takeTransport().then(res => console.log(res));
-                            await goWork().then(res => console.log(res));
-                            await workBit().then(res => console.log(res));
-                            await haveBreak().then(res => console.log(res));
-                            await workAgain().then(res => console.log(res));
-                            await goHome().then(res => console.log(res));
-                            await goSleep();
-                        }
-
-                        myFunc()
-                    }, 101)
+                        console.log('----- Async/Await -----')
+                    }, 101);
+                })
+                .finally(() => {
+                    async function myFunc() {
+                        await getUp().then(res => console.log(res));
+                        await washUp().then(res => console.log(res));
+                        await haveBreakfast().then(res => console.log(res));
+                        await takeTransport().then(res => console.log(res));
+                        await goWork().then(res => console.log(res));
+                        await workBit().then(res => console.log(res));
+                        await haveBreak().then(res => console.log(res));
+                        await workAgain().then(res => console.log(res));
+                        await goHome().then(res => console.log(res));
+                        await goSleep();
+                    }
+                    myFunc()
                 })
         })
-
-
 }, 600)
 
 
