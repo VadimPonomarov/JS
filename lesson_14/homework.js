@@ -94,6 +94,16 @@ const goHome = () => {
 goHome().then(res => console.log(res));
 
 
+/* А эта функция без промиса */
+const goSleep = () => {
+    setTimeout(() => {
+        return console.log('10 - Go to bad and sleep ...');
+    }, 100)
+}
+
+goSleep();
+
+
 setTimeout(() => {
     console.log('----- PROMISE.THEN -----');
     getUp()
@@ -130,22 +140,29 @@ setTimeout(() => {
                 })
                 .then(res => {
                     console.log(res);
-                    async function myFunc() {
-                        console.log('----- Async/Await -----');
-                        await getUp().then(res => console.log(res));
-                        await washUp().then(res => console.log(res));
-                        await haveBreakfast().then(res => console.log(res));
-                        await takeTransport().then(res => console.log(res));
-                        await goWork().then(res => console.log(res));
-                        await workBit().then(res => console.log(res));
-                        await haveBreak().then(res => console.log(res));
-                        await workAgain().then(res => console.log(res));
-                        await goHome().then(res => console.log(res));
-                    }
-                    myFunc()
+                    goSleep();
+                    return
+                })
+                .finally(() => {
+                    setTimeout(() => {
+                        async function myFunc() {
+                            console.log('----- Async/Await -----');
+                            await getUp().then(res => console.log(res));
+                            await washUp().then(res => console.log(res));
+                            await haveBreakfast().then(res => console.log(res));
+                            await takeTransport().then(res => console.log(res));
+                            await goWork().then(res => console.log(res));
+                            await workBit().then(res => console.log(res));
+                            await haveBreak().then(res => console.log(res));
+                            await workAgain().then(res => console.log(res));
+                            await goHome().then(res => console.log(res));
+                            await goSleep();
+                        }
+
+                        myFunc()
+                    }, 101)
                 })
         })
-
 
 
 }, 600)
