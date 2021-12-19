@@ -17,7 +17,7 @@ fetch('https://jsonplaceholder.typicode.com/users')
             btn.classList.add('btn', 'm-1', 'btn-primary', 'col-6');
             btn.onclick = function (e, location1 = location) {
                 localStorage.setItem('currentUser', JSON.stringify(user));
-                window.open('http://localhost:63342/JS/mini_project/user_details.html?target=_blank', '_blank')
+                location.assign('http://localhost:63342/JS/mini_project/user_details.html');
             }
             userDiv.classList.add('card', 'p-2', 'm-1', 'align-items-center', 'col-5');
             userDiv.innerHTML = `

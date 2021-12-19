@@ -6,6 +6,11 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    let backWard = document.createElement('a');
+    backWard.setAttribute('href', 'http://localhost:63342/JS/mini_project/index.html');
+    backWard.innerText = 'Вернуться';
+    backWard.classList.add('btn', 'btn-secondary');
+    document.body.appendChild(backWard);
     let user = JSON.parse(localStorage.getItem('currentUser'));
     if (user) {
         let mainDiv = document.createElement('div');
@@ -119,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         postBtn.innerText = 'More info ...';
                         postBtn.onclick = function () {
                             localStorage.setItem('currentPost', JSON.stringify(post));
-                            window.open('http://localhost:63342/JS/mini_project/post_details.html','_blank');
+                            location.assign('http://localhost:63342/JS/mini_project/post_details.html');
                         }
 
 

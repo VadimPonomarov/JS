@@ -4,6 +4,12 @@
 
 document.addEventListener('DOMContentLoaded', function () {
 
+    let backWard = document.createElement('a');
+    backWard.setAttribute('href', 'http://localhost:63342/JS/mini_project/user_details.html');
+    backWard.innerText = 'Вернуться';
+    backWard.classList.add('btn', 'btn-secondary');
+    document.body.appendChild(backWard);
+
     let post = JSON.parse(localStorage.getItem('currentPost'));
     let container = document.createElement('div');
     container.classList.add('text-center');
